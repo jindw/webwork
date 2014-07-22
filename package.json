@@ -1,0 +1,13 @@
+{
+  "name": "webwork",
+  "version": "0.1.0",
+  "bugs": {"url": "https://github.com/jin-sandbox/webwork/issues"},
+  "description": "restfull api gate app framework",
+  "keywords": ["web","rest","restfull","http","application","framework"],
+  "main": "lib/app.js",
+  "contributors": [{"name": "jindw","email": "jindw@xidea.org" }],
+  "maintainers": [{"name": "jindw","email": "jindw@xidea.org" }],
+  "license": "MIT",
+  "engines": { "node": ">= 6.0.0"}
+  "optionalDependencies": {"xmldom":"*","lite":"*"}
+}
