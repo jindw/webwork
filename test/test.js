@@ -19,7 +19,7 @@ app.bind('/:ns?/html/:method').get(function * (req,resp){
     //等待10毫秒
     var lazyData = yield new Promise(function(resolve,reject){
                                setTimeout(function(){
-                                   reject("等待一段时间才能执行后面的代码...");
+                                   resolve("等待一段时间才能执行后面的代码...");
                                },10)
                            })
 
