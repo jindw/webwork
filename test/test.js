@@ -1,13 +1,15 @@
 var app = require('../lib/app.js');
 app.intercept(function(req,resp,next){
-	next(req,resp);
+	return next(req,resp);
 });
 
 var LiteEngine = require('lite');
-console.log(__dirname)
+//console.log(__dirname)
+
+
+
 var engine = new LiteEngine(__dirname);
 app.resolveView('*.xhtml',engine.render.bind(engine))
-
 app.bind('/:ns?/html/:method').get(function * (req,resp){
     this.title="测试:"+req.url;
 
