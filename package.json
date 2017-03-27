@@ -1,6 +1,6 @@
 {
   "name": "webwork",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bugs": {"url": "https://github.com/jin-sandbox/webwork/issues"},
   "description": "restfull api gate app framework",
   "keywords": ["web","rest","restfull","http","application","framework"],

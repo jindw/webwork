@@ -1,5 +1,6 @@
 var app = require('express')();
-app.get('/abcd:test/t:test3(\d)+',function(req,resp){
+app.get('/abcd:test/t:test(/\d+/)',function(req,resp){
+	console.log(req.value,req.values)
 	console.log(req.param,req.params.id,Object.keys(req))
 	console.log({
 		//next:req.next,
@@ -13,7 +14,7 @@ app.get('/abcd:test/t:test3(\d)+',function(req,resp){
 	console.log(req.param+'')
 	resp.end('hello world'+req)
 });
-app.get('/:ns?/:service/:method',function(req,resp){
+app.get('/ns?/:service/:method',function(req,resp){
 	resp.end('hello world'+JSON.stringify(req.params)+Date.now());
 });
 app.listen(8081);

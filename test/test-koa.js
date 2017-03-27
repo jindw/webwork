@@ -1,8 +1,8 @@
 var app = new (require('koa'))();
 var router = require('koa-router')();
 
-router.get('/+/abcd:test/*/t:test3(\\d*)',function(){
-	console.log(this.param,this.params)
+router.get('/abcd:test/t(/a\\da/)?',function(){
+	console.log(this.value,this.values)
 	console.log(this.query)
 	this.body = ('hello world\n'+Object.keys(this))
 })
