@@ -14,18 +14,22 @@ Simplicity is the ultimate sophistication.
 ## How To Use
 
 ####install
+
 ```
 $ npm install webwork
 ```
 
 ####hello world
+
 ```js
 //use shared webwork instance and bind any http method to any url
 require('webwork').bind('/*',function(req,resp){
 	resp.end('Hello WebWork');
 }).start(8080)
 ```
+
 ####Full Examples
+
 ```js
 //new webwork instance
 const WW = require('webwork');
@@ -64,7 +68,9 @@ app.start();
 ```
 
 ###Use Template
+
 #####lite template is recomanded
+
 * auto bigpiple support
 * auto bigrender support
 * and others....
@@ -74,6 +80,7 @@ let LiteEngine = require('lite');
 let engine = new LiteEngine('./');
 app.resolveView('*.xhtml',engine.render.bind(engine))
 ```
+
 #####for others
 
 ```
