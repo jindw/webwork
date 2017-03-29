@@ -9,5 +9,5 @@
   "maintainers": [{"name": "jindw","email": "jindw@xidea.org" }],
   "license": "MIT",
   "engines": { "node": ">= 6.0.0"},
-  "optionalDependencies": {"xmldom":"*","lite":"*"}
+  "dependencies": {}
 }

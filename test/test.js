@@ -1,18 +1,41 @@
 var app = require('../lib/app.js');
-app.intercept(function(req,resp,next){
+
+app.intercept(function *(req,resp,next){
+	//console.log(arguments,req+'',resp+'')
+	//console.log(yield 111);
+	return next(req,resp);
+});
+app.intercept(function *(req,resp,next){
+	//console.log(arguments,req+'',resp+'')
+	//console.log(yield new Promise(function(r){setTimeout(r,100)}));
+	//next(req,resp);
+	return next(req,resp);
+});
+app.intercept(function *(req,resp,next){
+	//console.log(arguments,req+'',resp+'')
+	//console.log(yield 333);
+	//return ('test.xhtml');
+	return next(req,resp);
+});
+
+app.intercept(function *(req,resp,next){
+	//console.log(arguments,req+'',resp+'')
+	//console.log(yield 444);
+	//return ('test.xhtml');
 	return next(req,resp);
 });
 
 var LiteEngine = require('lite');
 //console.log(__dirname)
 
-
-
 var engine = new LiteEngine(__dirname);
 app.resolveView('*.xhtml',engine.render.bind(engine))
 app.bind('/:ns?/html/:method').get(function * (req,resp){
     this.title="测试:"+req.url;
-
+    //console.log('!!!!!',this.a)
+    //resp.end('123')
+    return;
+/*
     this.description = new Promise(function(resolve,reject){
         setTimeout(function(){
             resolve("异步获取的详细描述信息")
@@ -34,7 +57,7 @@ app.bind('/:ns?/html/:method').get(function * (req,resp){
     for(var n in promiseMap){
         promiseMap[n] = yield promiseMap[n];
     }
-	return 'test.xhtml'
+	return 'test.xhtml'*/
 })
 app.bind('/:ns?/service/:method').get(function(req,resp){
       this.title="测试:"+req.url;
