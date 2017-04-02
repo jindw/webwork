@@ -20,7 +20,7 @@ describe('app.router', function(){
         var app = new Webwork();
         var calls = [];
 
-        app.bind('/foo')[method]( function(req, res){
+        app[method]( '/foo',function(req, res){
           if ('head' == method) {
             res.end();
           } else {

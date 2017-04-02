@@ -41,26 +41,32 @@ let engine = new LiteEngine('./');
 app.resolveView('*.xhtml',engine.render.bind(engine))
 
 //bind a resource as restfull api
-app.bind('/resource/:id').get(function(req,resp){ //http get
-   const id = req.params.id;
-   this.title = 'Hello Webwork';
-   this.content = 'resource id:'+id;
-   //no output(resp.end), no view is  returned,
-   //automatically encoded as json format 
-}).post(async function(req,resp){ //async function is recommended at all times;
-   var body = await req.body;	    //create: http post
-   this.id = createXXX.....
-   //json output
-}).del(function *(req,resp){		 //delete: http delete
-    const id = req.params.id;
-	this.status = deleteXXX.....
+app.bind('/resource/:id',{
+    function get(req,resp){ //http get
+        const id = req.params.id;
+        this.title = 'Hello Webwork';
+        this.content = 'resource id:'+id;
+        //no output(resp.end), no view is  returned,
+        //automatically encoded as json format
+    },
+    async function post(req,resp){ //async function is recommended at all times;
+        var body = await req.body;	    //create: http post
+        this.id = createXXX.....
+        //json output
+    },
+    function * del(req,resp){		 //delete: http delete
+        const id = req.params.id;
+        this.status = deleteXXX.....
+    }
 });
 
 //bind get http method for any other url and use template: '/success.xhtml'
-app.bind('*').get(function(req,resp){
-  this.title = 'Hello Webwork';
-  this.content = 'url path:'+req.params[0];
-  return '/success.xhtml'
+app.bind('*',{
+    function get(req,resp){
+        this.title = 'Hello Webwork';
+        this.content = 'url path:'+req.params[0];
+        return '/success.xhtml'
+    }
 });
 
 app.start();

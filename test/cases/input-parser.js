@@ -12,7 +12,7 @@ describe('app input getter', function(){
 
       var app = new Webwork();
 
-      app.bind('*').post(function*(req, res){
+      app.post('*',function*(req, res){
         var body = yield req.body;
 
         res.end(body.name);
@@ -27,7 +27,7 @@ describe('app input getter', function(){
 
       var app = new Webwork();
 
-      app.bind('*').post(function*(req, res){
+       app.post('*',function*(req, res){
         var value = yield req.value;
 
         res.end(value.name);
