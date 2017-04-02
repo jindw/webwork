@@ -1,8 +1,9 @@
-var app = require('../lib/app.js');
+var app = require('webwork');
 
 app.intercept(function *(req,resp,next){
 	//console.log(arguments,req+'',resp+'')
 	//console.log(yield 111);
+	//console.log(req.method)
 	return next(req,resp);
 });
 app.intercept(function *(req,resp,next){
@@ -22,6 +23,9 @@ app.intercept(function *(req,resp,next){
 	//console.log(arguments,req+'',resp+'')
 	//console.log(yield 444);
 	//return ('test.xhtml');
+
+	//require('fs').createReadStream('test/test-koa.js').pipe(resp)
+	//return new Promise(function(resolve){resp.on('end',resolve);})
 	return next(req,resp);
 });
 
@@ -30,10 +34,10 @@ var LiteEngine = require('lite');
 
 var engine = new LiteEngine(__dirname);
 app.resolveView('*.xhtml',engine.render.bind(engine))
-app.bind('/:ns?/html/:method').get(function * (req,resp){
+app.bind('/:ns?/html/:method').post(function * (req,resp){
     this.title="测试:"+req.url;
-    //console.log('!!!!!',this.a)
-    //resp.end('123')
+    console.log('!!!!!',yield req.body)
+    resp.end('123')
     return;
 /*
     this.description = new Promise(function(resolve,reject){

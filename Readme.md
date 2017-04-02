@@ -1,4 +1,4 @@
-## Installation
+## Introduction
 
 Simplicity is the ultimate sophistication.
 
