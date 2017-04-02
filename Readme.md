@@ -23,9 +23,11 @@ $ npm install webwork
 
 ```js
 //use shared webwork instance and bind any http method to any url
-require('webwork').bind('/*',function(req,resp){
+var app = require('webwork');
+app.bind('/*',function(req,resp){
 	resp.end('Hello WebWork');
-}).start(8080)
+});
+.start(8080)
 ```
 
 ####Full Examples
