@@ -1,4 +1,4 @@
-require('./cases/app');
-require('./cases/input-parser.js');
-require('./cases/path-regexp.js');
-require('./cases/router.js');
+require('./cases/app-test');
+require('./cases/input-parser-test.js');
+require('./cases/router-regexp-test.js');
+require('./cases/router-test.js');
