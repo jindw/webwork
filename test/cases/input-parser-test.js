@@ -14,6 +14,7 @@ describe('app input getter', function(){
 
       app.post('*',function*(req, res){
         var body = yield req.body;
+        console.log(JSON.stringify(body))
 
         res.end(body.name);
       });
@@ -29,6 +30,7 @@ describe('app input getter', function(){
 
        app.post('*',function*(req, res){
         var value = yield req.value;
+        console.log(JSON.stringify(value))
 
         res.end(value.name);
       });
